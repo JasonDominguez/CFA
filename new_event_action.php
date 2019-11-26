@@ -42,6 +42,7 @@
 
   if (! $error) {
     $db = new SQLite3('cfa.db');
+    echo $name, "<br>", $sponsor, "<br>", $location, "<br>", $date, "<br>", $time, "<br>", $description;
     $insert = $db->prepare('INSERT INTO "event" ("eventName", "sponsor", "location", "eventDate", "eventTime", "description") 
     VALUES (:name, :sponsor, :location, :date, :time, :description)');
     $insert->bindValue(':name', $name);
