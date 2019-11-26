@@ -52,9 +52,14 @@
     $insert->bindValue(':description', $description);
     $insert->execute();
     $db->close();
-
-    $messages[] = "Your event data has been saved!";
-    $messages[] = '<button><span><a href="new_event.php" class="fill">Add another event</a></span></button>';
+      if($insert){
+        $messages[] = "Your event data has been saved!";
+        $messages[] = '<button><span><a href="new_event.php" class="fill">Add another event</a></span></button>';
+      }
+      else{
+        $messages[] = "something went wrong $name <br> $sponsor <br> $location <br> $date <br> $time";
+      }
+    
     }
     else{
       $messages[] = '<button><span><a href="new_event.php" class="fill">Try Again</a></span></button>';
