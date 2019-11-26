@@ -42,9 +42,8 @@
 
   if (! $error) {
     $db = new SQLite3('cfa.db');
-    echo $name, "<br>", $sponsor, "<br>", $location, "<br>", $date, "<br>", $time, "<br>", $description;
-    $insert = $db->prepare('INSERT INTO "event" ("eventName", "sponsor", "location", "eventDate", "eventTime", "description") 
-    VALUES (:name, :sponsor, :location, :date, :time, :description)');
+    $insert = $db->prepare("INSERT INTO event (eventName, sponsor, location, eventDate, eventTime, description) 
+    VALUES (:name, :sponsor, :location, :date, :time, :description);");
     $insert->bindValue(':name', $name);
     $insert->bindValue(':sponsor', $sponsor);
     $insert->bindValue(':location', $location);
@@ -52,8 +51,10 @@
     $insert->bindValue(':time', $time);
     $insert->bindValue(':description', $description);
     $insert->execute();
-
     $db->close();
+
+    $messages[] = "Your event data has been saved!";
+    $messages[] = '<button><span><a href="new_event.php" class="fill">Add another event</a></span></button>';
     }
     else{
       $messages[] = '<button><span><a href="new_event.php" class="fill">Try Again</a></span></button>';
