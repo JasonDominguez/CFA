@@ -51,19 +51,19 @@
     $insert->bindValue(':time', $time);
     $insert->bindValue(':description', $description);
     $insert->execute();
-    $db->close();
-      if($insert){
-        $messages[] = "Your event data has been saved!";
-        $messages[] = '<button><span><a href="new_event.php" class="fill">Add another event</a></span></button>';
-      }
-      else{
-        $messages[] = "something went wrong $name <br> $sponsor <br> $location <br> $date <br> $time";
-      }
     
+    if($insert){
+      $messages[] = "Your event data has been saved!";
+      $messages[] = '<button><span><a href="new_event.php" class="fill">Add another event</a></span></button>';
     }
     else{
-      $messages[] = '<button><span><a href="new_event.php" class="fill">Try Again</a></span></button>';
+      $messages[] = "something went wrong $name <br> $sponsor <br> $location <br> $date <br> $time";
     }
+    $db->close();
+    }
+  else{
+    $messages[] = '<button><span><a href="new_event.php" class="fill">Try Again</a></span></button>';
+  }
 
 //  if (! $error) {
 //     $file = 'events.txt';
