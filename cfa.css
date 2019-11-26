@@ -1,0 +1,260 @@
+html, .body{
+    background-image: url(pics/backround.jpg);/*https://cdn.pixabay.com/photo/2018/09/28/22/28/river-3710420_1280.jpg*/
+    background-color: #455184;
+    background-size: cover;
+    font-family: verdana;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+.container{
+    box-sizing: border-box;
+    background-color: white;
+    background-image: none;
+    margin: auto;
+    margin-top: 4vw;
+    width: 75vw;
+    overflow: auto;
+}
+/* ===== header ===== */
+.header{
+    box-sizing: border-box;
+    max-width: 100%;
+    position: relative;
+    max-height: 170px;
+}
+#headImg{
+    box-sizing: border-box;
+    display: inline-block;
+    height: 170px; 
+}
+.header h1{
+    box-sizing: border-box;
+    display: inline-block;
+    position: absolute;
+    text-align: left;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #455184;
+    font-size: 40px;
+    margin-top: 50px;
+    margin-left: 30px;
+}
+.logBox{
+    box-sizing: border-box;
+    display: inline-block;
+    position: absolute;
+    max-height: 170px;
+    border: 1px solid black;
+
+}
+/* ===== navigation bar ===== */
+.navbar{
+    overflow: hidden;
+    background-color: #455184;
+    margin: 0;
+    padding: 0;
+    border-bottom:5px solid #D3BF00;
+}
+.navbar ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.navbar li{
+    float: left;
+}
+.navbar li a{
+    display: block;
+    text-align: center;
+    padding: 10px 30px;
+    text-decoration: none;
+    color: white;
+}
+.navbar li a:hover{
+    background-color:lightslategray;
+}
+.active {
+    font-weight: bold;
+}
+/* ===== left column ===== */
+.info{
+    display: inline-block;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 1% 4% 1% 1%;
+    margin: 2%;
+    width: 70%;
+    border-right-style: solid;
+    border-width: 1px;
+    min-height: 40vw;
+}
+#large{
+    line-height: 3;
+    font-size: 20px;
+}
+#welcome{
+    box-shadow: 10px 10px 8px #888888;
+    border-style: solid;
+    border-width: 1px;
+}
+hr{
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+    border-width: 2px;
+}
+.content{
+    text-align: left;
+    margin: 2%;
+}
+/* ===== sidebar =====*/
+.sidebar{
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    right: 12%;
+    width: 22%;
+    margin-top: 1%;
+}
+.sidebar img{
+    box-sizing: border-box;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10%;
+    max-width: 250px;
+    max-height: 200px;
+    height: 80%;
+    width: 80%;
+}
+/* ===== calendar ===== */
+.calendar{
+    color:black;
+    margin: 0;
+    padding: 0;
+}
+.day {
+    margin-top: 1vw;
+}
+.day, .dates {
+    display: grid;
+    grid-gap: 2vw 2vw;
+    grid-template-columns: repeat(7, 1fr);
+}
+.dates{
+    margin-top: 1vw;
+}
+.dates button{
+    font-size: inherit;
+    border-color: #455184;
+    background-color: rgba(211, 190, 0, 0.623);
+    border-radius: .7vw;
+}
+.dates a.fill{
+    display: block;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    color:black;
+}
+.dates span:first-child{/*first day is 3rd column*/
+    grid-column: 6
+}
+/* ===== categories =====*/
+.categories{
+    text-align: left;
+    margin: 0;
+    padding: 0;
+}
+.categories h1{
+    margin-bottom: 0;
+    padding: .5vw 1vw;
+    border: 1px solid black;
+    border-top-left-radius: 1vw;
+    border-top-right-radius: 1vw;
+    background-color: rgba(211, 190, 0, 0.473);
+    color:#39457e; 
+}
+ul.cells{
+    padding: 0;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    border-bottom-left-radius: 1vw;
+    border-bottom-right-radius: 1vw; 
+    background-color: #4551841e; 
+}
+ul.cells li{
+    padding: .5vw;
+    list-style-type: none;
+    border-top: 1px solid black;
+    
+}
+ul.cells a.fill{
+    display: block;
+    height:100%;
+    width: 100%;
+    padding-left: 1vw;
+    font-weight: bold;
+    text-decoration: none;
+    color:black;
+}
+ul.cells p{
+    padding-left: 2vw;
+    margin:0;
+    font-size: 1vw
+ }
+/* ===== forms ===== */
+.formBox {
+    box-sizing: border-box;
+    text-align: left;
+    padding: 0 3vw;
+}
+.formBox h1 {
+    text-align: center;
+}
+tr.instruction{
+    font-size: x-small;
+    color:red;
+}
+tr.spacer{
+    height: 1.5rem;
+}
+label {
+    display: inline-block;
+    width: 15vw;
+}
+label[for=age]{
+    width:3vw;
+}
+input[type=text], input[type=password], input[type=email] {
+    width: 20rem;
+    padding: 1vw;
+    margin-top: .3vw;
+    display: inline-block;
+    border: 1px solid darkgray;
+}
+input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
+    background-color: rgb(250, 250, 250);
+    outline-color: #39457e;
+}
+input[type=number] {
+    width: 2rem;
+    margin-top: .3vw;
+    display: inline-block;
+    border: 1px solid darkgray;
+}
+.empty{
+    background: rgb(240, 240, 240);
+}
+.good {
+    background-color: lightgreen;
+}
+.bad {
+    background-color: lightcoral;
+}
+
+/* ===== footer ===== */
+#footer{
+    width: 75vw;
+    margin: auto;
+}
