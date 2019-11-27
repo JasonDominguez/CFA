@@ -70,17 +70,17 @@
     $db = new SQLite3('cfa.db');
     $insert = $db->prepare("INSERT INTO users (userId, password, fname, lname, email, expirence, gender, age, address, city, state) 
     VALUES (:id, :password, :fname, :lname, :email, :expirence, :gender, :age, :address, :city, :state);");
-    $insert->bindValue(':id', $name);
-    $insert->bindValue(':password', $sponsor);
-    $insert->bindValue(':fname', $location);
-    $insert->bindValue(':lname', $date);
-    $insert->bindValue(':email', $time);
-    $insert->bindValue(':expirence', $description);
-    $insert->bindValue(':gender', $time);
-    $insert->bindValue(':age', $time);
-    $insert->bindValue(':address', $time);
-    $insert->bindValue(':city', $time);
-    $insert->bindValue(':state', $time);
+    $insert->bindValue(':id', $userid);
+    $insert->bindValue(':password', $password);
+    $insert->bindValue(':fname', $first);
+    $insert->bindValue(':lname', $last);
+    $insert->bindValue(':email', $email);
+    $insert->bindValue(':expirence', $expirence);
+    $insert->bindValue(':gender', $gender);
+    $insert->bindValue(':age', $age);
+    $insert->bindValue(':address', $address);
+    $insert->bindValue(':city', $city);
+    $insert->bindValue(':state', $state);
     $insert->execute();
     $db->close();
 
