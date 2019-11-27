@@ -84,12 +84,12 @@
     $insert->execute();
     $db->close();
 
-    
+
     $messages[] = "Your registration data has been saved!";
-    }
-    else{
-      $messages[] = '<button><span><a href="registration.php" class="fill">Try Again</a></span></button>';
-    }
+  }
+  else{
+    $messages[] = '<button><span><a href="registration.php" class="fill">Try Again</a></span></button>';
+  }
 
   // if (! $error) { 
   //   $file = 'registrations.txt';
