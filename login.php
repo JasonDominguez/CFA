@@ -24,6 +24,13 @@
 </head>
 <body>
 
+<div class="container">
+
+    <?php include('common/header.php');?>
+    <?php include('common/menu.php');?>
+
+<p>
+
 <h2>Login</h2>
 
 <form method="POST" action="login_action.php">
