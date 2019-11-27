@@ -1,5 +1,5 @@
 <?php
-  session_start();
+  //session_start();
 
   if (empty($_POST['userid']) || empty($_POST['password']) ) {
     $_SESSION['message'] = "Please login";
