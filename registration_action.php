@@ -91,29 +91,6 @@
     $messages[] = '<button><span><a href="registration.php" class="fill">Try Again</a></span></button>';
   }
 
-  // if (! $error) { 
-  //   $file = 'registrations.txt';
-  //   $data = array(
-  //     "id" => $userid, 
-  //     "password" => $password, 
-  //     "firstName" => $first,
-  //     "lastName" => $last,
-  //     "email" => $email,
-  //     "expirence" => $expirence,
-  //     "gender" => $gender,
-  //     "age" => $age,
-  //     "address" => $address,
-  //     "city" => $city, 
-  //     "state" => $state);
-    
-  //   $jsonLine = json_encode($data) . "|\n"; 
-  //   file_put_contents($file, $jsonLine, FILE_APPEND | LOCK_EX);
-  //   $messages[] = "Your registration data has been saved!";
-  // }
-  // else{
-  //   $messages[] = '<button><span><a href="registration.php" class="fill">Try Again</a></span></button>';
-  // }
-
 ?>
 
 <!DOCTYPE html>

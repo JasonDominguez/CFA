@@ -65,25 +65,6 @@
     $messages[] = '<button><span><a href="new_event.php" class="fill">Try Again</a></span></button>';
   }
 
-//  if (! $error) {
-//     $file = 'events.txt';
-//     $data = array(
-//         "eventName" => $name,
-//         "sponsor" => $sponsor,
-//         "location" => $location,
-//         "date" => $date,
-//         "time" => $time,
-//         "description" => $description);
-
-//     $jsonLine = json_encode($data) . "|\n"; 
-//     file_put_contents($file, $jsonLine, FILE_APPEND | LOCK_EX);
-//     $messages[] = "Your event data has been saved!";
-//     $messages[] = '<button><span><a href="new_event.php" class="fill">Add another event</a></span></button>';
-    
-//   }
-//   else{
-//     $messages[] = '<button><span><a href="new_event.php" class="fill">Try Again</a></span></button>';
-//   }
 ?>
 
 <!DOCTYPE html>
