@@ -84,6 +84,7 @@
     $insert->execute();
     $db->close();
 
+    
     $messages[] = "Your registration data has been saved!";
     }
     else{
