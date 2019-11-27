@@ -11,18 +11,18 @@
     //  if ($_POST['userid'] == $user['userid'] && $user['password'] ==
     //      password_hash($_POST['password'], PASSWORD_BCRYPT, ['salt' => $user['salt']]) ) {
 
-    $db = new SQLite3('cfa.db') or die('Unable to open database');
+    // $db = new SQLite3('cfa.db') or die('Unable to open database');
     
-    $user = sanitize($_POST['userid']);
-    $pass = sanitize($_POST['password']);
+    // $user = sanitize($_POST['userid']);
+    // $pass = sanitize($_POST['password']);
 
-    $result = $db->query("SELECT * FROM users WHERE userId = $user;") or die('Query failed');
+    // $result = $db->query("SELECT * FROM users WHERE userId = $user;") or die('Query failed');
 
-    while ($row = $result->fetchArray())
-    {
-        echo "User: {$row['userId']}\nFirst name: {$row['fname']}\n";
-    } 
-    $db->close();
+    // while ($row = $result->fetchArray())
+    // {
+    //     echo "User: {$row['userId']}\nFirst name: {$row['fname']}\n";
+    // } 
+    // $db->close();
 
 //   if ($_POST['userid'] == $user['userid'] && password_verify($_POST['password'], $user['password'])) {
 
@@ -32,9 +32,9 @@
 //     require('index.php');
 //   }
 
-//   else {
-//     $_SESSION['message'] = "Invalid credentials - please try again";
-//     require('login.php');
-//   }
+  else {
+    $_SESSION['message'] = "Invalid credentials - please try again";
+    require('login.php');
+  }
 
 ?>
