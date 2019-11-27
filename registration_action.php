@@ -66,53 +66,53 @@
     $messages[] = "Please select a state.";
   }
 
-  if (! $error) {
-    $db = new SQLite3('cfa.db');
-    $insert = $db->prepare("INSERT INTO users (userId, password, fname, lname, email, expirence, gender, age, address, city, state) 
-    VALUES (:id, :password, :fname, :lname, :email, :expirence, :gender, :age, :address, :city, :state);");
-    $insert->bindValue(':id', $userid);
-    $insert->bindValue(':password', $password);
-    $insert->bindValue(':fname', $first);
-    $insert->bindValue(':lname', $last);
-    $insert->bindValue(':email', $email);
-    $insert->bindValue(':expirence', $expirence);
-    $insert->bindValue(':gender', $gender);
-    $insert->bindValue(':age', $age);
-    $insert->bindValue(':address', $address);
-    $insert->bindValue(':city', $city);
-    $insert->bindValue(':state', $state);
-    $insert->execute();
-    $db->close();
+  // if (! $error) {
+  //   $db = new SQLite3('cfa.db');
+  //   $insert = $db->prepare("INSERT INTO users (userId, password, fname, lname, email, expirence, gender, age, address, city, state) 
+  //   VALUES (:id, :password, :fname, :lname, :email, :expirence, :gender, :age, :address, :city, :state);");
+  //   $insert->bindValue(':id', $userid);
+  //   $insert->bindValue(':password', $password);
+  //   $insert->bindValue(':fname', $first);
+  //   $insert->bindValue(':lname', $last);
+  //   $insert->bindValue(':email', $email);
+  //   $insert->bindValue(':expirence', $expirence);
+  //   $insert->bindValue(':gender', $gender);
+  //   $insert->bindValue(':age', $age);
+  //   $insert->bindValue(':address', $address);
+  //   $insert->bindValue(':city', $city);
+  //   $insert->bindValue(':state', $state);
+  //   $insert->execute();
+  //   $db->close();
 
 
-    $messages[] = "Your registration data has been saved!";
-  }
-  else{
-    $messages[] = '<button><span><a href="registration.php" class="fill">Try Again</a></span></button>';
-  }
-
-  // if (! $error) { 
-  //   $file = 'registrations.txt';
-  //   $data = array(
-  //     "id" => $userid, 
-  //     "password" => $password, 
-  //     "firstName" => $first,
-  //     "lastName" => $last,
-  //     "email" => $email,
-  //     "expirence" => $expirence,
-  //     "gender" => $gender,
-  //     "age" => $age,
-  //     "address" => $address,
-  //     "city" => $city, 
-  //     "state" => $state);
-    
-  //   $jsonLine = json_encode($data) . "|\n"; 
-  //   file_put_contents($file, $jsonLine, FILE_APPEND | LOCK_EX);
   //   $messages[] = "Your registration data has been saved!";
   // }
   // else{
   //   $messages[] = '<button><span><a href="registration.php" class="fill">Try Again</a></span></button>';
   // }
+
+  if (! $error) { 
+    $file = 'registrations.txt';
+    $data = array(
+      "id" => $userid, 
+      "password" => $password, 
+      "firstName" => $first,
+      "lastName" => $last,
+      "email" => $email,
+      "expirence" => $expirence,
+      "gender" => $gender,
+      "age" => $age,
+      "address" => $address,
+      "city" => $city, 
+      "state" => $state);
+    
+    $jsonLine = json_encode($data) . "|\n"; 
+    file_put_contents($file, $jsonLine, FILE_APPEND | LOCK_EX);
+    $messages[] = "Your registration data has been saved!";
+  }
+  else{
+    $messages[] = '<button><span><a href="registration.php" class="fill">Try Again</a></span></button>';
+  }
 
 ?>
 
