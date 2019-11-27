@@ -16,12 +16,12 @@
     $user = sanitize($_POST['userid']);
     $pass = sanitize($_POST['password']);
 
-    $result = $db->query("SELECT * FROM users WHERE userId = $user;") or die('Query failed');
+    // $result = $db->query("SELECT * FROM users WHERE userId = $user;") or die('Query failed');
 
-    while ($row = $result->fetchArray())
-    {
-        echo "User: {$row['userId']}\nFirst name: {$row['fname']}\n";
-    } 
+    // while ($row = $result->fetchArray())
+    // {
+    //     echo "User: {$row['userId']}\nFirst name: {$row['fname']}\n";
+    // } 
     $db->close();
 
 //   if ($_POST['userid'] == $user['userid'] && password_verify($_POST['password'], $user['password'])) {
