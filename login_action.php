@@ -1,5 +1,8 @@
 <?php
-  //session_start();
+  if(session_id() == '' || !isset($_SESSION)) {
+    // session isn't started
+    session_start();
+  }
 
   if (empty($_POST['userid']) || empty($_POST['password']) ) {
     $_SESSION['message'] = "Please login";
