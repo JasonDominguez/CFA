@@ -40,31 +40,6 @@
     $messages[] = "Date of event can not have already passed.";
   }
 
-  // if (! $error) {
-  //   $db = new SQLite3('cfa.db');
-  //   $insert = $db->prepare("INSERT INTO event (eventName, sponsor, location, eventDate, eventTime, description) 
-  //   VALUES (:name, :sponsor, :location, :date, :time, :description);");
-  //   $insert->bindValue(':name', $name);
-  //   $insert->bindValue(':sponsor', $sponsor);
-  //   $insert->bindValue(':location', $location);
-  //   $insert->bindValue(':date', $date);
-  //   $insert->bindValue(':time', $time);
-  //   $insert->bindValue(':description', $description);
-  //   $insert->execute();
-    
-  //   if($insert){
-  //     $messages[] = "Your event data has been saved!";
-  //     $messages[] = '<button><span><a href="new_event.php" class="fill">Add another event</a></span></button>';
-  //   }
-  //   else{
-  //     $messages[] = "something went wrong $name <br> $sponsor <br> $location <br> $date <br> $time";
-  //   }
-  //   $db->close();
-  //   }
-  // else{
-  //   $messages[] = '<button><span><a href="new_event.php" class="fill">Try Again</a></span></button>';
-  // }
-
  if (! $error) {
     $file = 'events.txt';
     $data = array(
