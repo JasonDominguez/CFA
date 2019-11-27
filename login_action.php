@@ -24,9 +24,10 @@
 
     while ($row = $result->fetchArray())
     {
-        echo "User: {$row['userId']}\nFirst name: {$row['fname']}\n";
+        $_SESSION['message'] = "User: {$row['userId']}\nFirst name: {$row['fname']}\n";
     } 
     $db->close();
+    require('login.php');
 
 //   if ($_POST['userid'] == $user['userid'] && password_verify($_POST['password'], $user['password'])) {
 
