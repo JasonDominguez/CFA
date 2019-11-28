@@ -22,20 +22,14 @@ QUERY;
     while($row = $result->fetchArray()){$data = $row;}
     $db->close();
    
-    if ($data && password_verify($data['password'], $password)){
+    if ($data && password_verify($password, $data['password_hash'])){
         $_SESSION['userid'] = $_POST['userid'];
         $_SESSION['logged_in'] = true;
         $_SESSION['message'] = $_SESSION['userid'] . " logged in";
         require('index.php');
     }
-    else{
-        $_SESSION['message'] = "not logged in";
+    else {
+        $_SESSION['message'] = "Invalid credentials - please try again";
+        require('login.php');
     }
-    require('login.php');
-
-//   else {
-//     $_SESSION['message'] = "Invalid credentials - please try again";
-//     require('login.php');
-//   }
-
 ?>

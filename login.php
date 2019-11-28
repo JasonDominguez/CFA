@@ -1,12 +1,10 @@
 <?php
   if(session_id() == '' || !isset($_SESSION)) {
-    // session isn't started
     session_start();
   }
 ?>
 
 <?php
-  // if already logged in, forward to home page
   if (!empty($_SESSION['logged_in']) && $_SESSION['logged_in']) {
     $_SESSION['message'] = "You are already logged in";
     require('index.php');

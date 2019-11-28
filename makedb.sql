@@ -9,7 +9,7 @@ CREATE TABLE event (
     );
 CREATE TABLE users (
     userId VARCHAR(20),
-    password CHAR(60),
+    password_hash CHAR(60),
     fname VARCHAR(30),
     lname VARCHAR(30),
     email VARCHAR(255),
