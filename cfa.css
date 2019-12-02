@@ -42,10 +42,11 @@ html, .body{
 .logBox{
     box-sizing: border-box;
     display: inline-block;
+    right: 20%;
+    top: 80%;
     position: absolute;
-    max-height: 170px;
-    border: 1px solid black;
-
+    /* max-height: 170px;
+    margin-left: 0px; */
 }
 /* ===== navigation bar ===== */
 .navbar{
@@ -75,6 +76,22 @@ html, .body{
 }
 .active {
     font-weight: bold;
+}
+.login {
+    border:2px solid#313857;
+    background: #457584;
+    border-radius:8px;
+    line-height: .2vw;
+    margin-top: .5vw;
+    margin-right: 2vw;
+}
+.logout {
+    border:2px solid#313857;
+    background: darkred;
+    border-radius:8px;
+    line-height: .2vw;
+    margin-top: .5vw;
+    margin-right: 2vw;
 }
 /* ===== left column ===== */
 .info{

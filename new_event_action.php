@@ -1,4 +1,9 @@
-<?php  
+<?php 
+
+  if(session_id() == '' || !isset($_SESSION)) {
+    session_start();
+  }
+ 
   $messages = array();
   $error = FALSE;
 
