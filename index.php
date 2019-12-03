@@ -4,11 +4,11 @@
   }
   if(strpos($_SERVER['HTTP_HOST'], "localhost") !== FALSE){// For local
     $http = "http://" . $_SERVER['HTTP_HOST'];
-    $root = $_SERVER['DOCUMENT_ROOT']."/";
+    $root = $_SERVER['DOCUMENT_ROOT'];
   }
   else{ // For Web
     $http = "https://" . $_SERVER['HTTP_HOST'] . "/~jdomingu/cs312/project";
-    $root = "";
+    $root = $_SERVER['DOCUMENT_ROOT'].shell_exec('pwd');
   }
 echo $http;
 echo "<br>";
@@ -25,9 +25,9 @@ echo $root;
     <body>
         <div class="container">
             <?php 
-                include("{$root}common/header.php");
-                include("{$root}common/menu.php");
-                include("{$root}common/sidebar.php");
+                include("{$root}/common/header.php");
+                include("{$root}/common/menu.php");
+                include("{$root}/common/sidebar.php");
             ?>
             <div class="info">
                 <div id="welcome">
@@ -65,7 +65,7 @@ echo $root;
                 </div>
             </div>
         </div>
-        <?php include("{$root}common/footer.php");?>
+        <?php include("{$root}/common/footer.php");?>
 
   </body>
 </html>
