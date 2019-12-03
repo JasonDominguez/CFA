@@ -3,6 +3,14 @@
   if(session_id() == '' || !isset($_SESSION)) {
     session_start();
   }
+  if(strpos($_SERVER['HTTP_HOST'], "localhost") !== FALSE){// For local
+    $http = "http://" . $_SERVER['HTTP_HOST'];
+    $root = $_SERVER['DOCUMENT_ROOT'];
+  }
+  else{ // For Web
+    $http = "https://" . $_SERVER['HTTP_HOST'];
+    $root = $_SERVER['DOCUMENT_ROOT'];
+  }
  
   $messages = array();
   $error = FALSE;
@@ -15,7 +23,7 @@
   $description = $_POST['description'];
 
   function dateExists($date) {
-    $db = new SQLite3('cfa.db') or die('Unable to open database');
+    $db = new SQLite3($GLOBALS['root'].'/cfa.db') or die('Unable to open database');
     $query = "SELECT * FROM event WHERE eventDate='$date';";
     $stmt = $db->querySingle($query);
     if($stmt){
@@ -67,7 +75,7 @@
   }
 
   if (! $error) {
-    $db = new SQLite3('cfa.db');
+    $db = new SQLite3($root.'/cfa.db');
     $insert = $db->prepare("INSERT INTO event (eventName, sponsor, location, eventDate, eventTime, description) 
     VALUES (:name, :sponsor, :location, :date, :time, :description);");
     $insert->bindValue(':name', $name);
@@ -80,7 +88,7 @@
     
     if($insert){
       $messages[] = "Your event data has been saved!";
-      $messages[] = '<button><span><a href="new_event.php" class="fill">Add another event</a></span></button>';
+      $messages[] = "<button><span><a href=\"{$http}/forms/new_event.php\" class=\"fill\">Add another event</a></span></button>";
     }
     else{
       $messages[] = "something went wrong $name <br> $sponsor <br> $location <br> $date <br> $time";
@@ -88,7 +96,7 @@
     $db->close();
     }
   else{
-    $messages[] = '<button><span><a href="new_event.php" class="fill">Try Again</a></span></button>';
+    $messages[] = "<button><span><a href=\"{$http}/forms/new_event.php\" class=\"fill\">Try Again</a></span></button>";
   }
 
 ?>
@@ -99,14 +107,14 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Event registration</title>
-    <link rel="stylesheet" href="cfa.css" />
+    <link rel="stylesheet" href=<?php echo "{$http}/cfa.css"; ?> />
 </head>
 <body>
 
 <div class="container">
 
-        <?php include('common/header.php');?>
-        <?php include('common/menu.php');?>
+  <?php include($root.'/common/header.php');?>
+  <?php include($root.'/common/menu.php');?>
 
 <p>
 <?php
@@ -118,7 +126,7 @@
 </p>
 </div>
 
-<?php include('common/footer.php'); ?>
+<?php include($root.'/common/footer.php'); ?>
 </body> 
 
 </html>

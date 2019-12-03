@@ -2,6 +2,14 @@
   if(session_id() == '' || !isset($_SESSION)) {
     session_start();
   }
+  if(strpos($_SERVER['HTTP_HOST'], "localhost") !== FALSE){// For local
+    $http = "http://" . $_SERVER['HTTP_HOST'];
+    $root = $_SERVER['DOCUMENT_ROOT'];
+  }
+  else{ // For Web
+    $http = "https://" . $_SERVER['HTTP_HOST'];
+    $root = $_SERVER['DOCUMENT_ROOT'];
+  }
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml-lang="en">
@@ -9,18 +17,18 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Events</title>
-    <link rel="stylesheet" href="cfa.css" />
+    <link rel="stylesheet" href=<?php echo "{$http}/cfa.css"; ?> />
 </head>
 
 <body>
     <div class="container">
-
-        <?php include('common/header.php');?>
-        <?php include('common/menu.php');?>
-        <?php include('common/sidebar.php');?>
-        
+        <?php 
+            include($root.'/common/header.php');
+            include($root.'/common/menu.php');
+            include($root.'/common/sidebar.php');
+        ?>
         <div class="info">
-        <button><span><a href="new_event.php" class="fill"><b>Add Event</b></a></span></button>
+        <button><span><a href=<?php echo "{$http}/forms/new_event.php"; ?> class="fill"><b>Add Event</b></a></span></button>
             <div class = "calendar">
 
                 <h2>November 2019</h2>
@@ -77,7 +85,7 @@
         //     $eventArray[$i] = json_decode($eventArray[$i], TRUE);
         // }
 
-    $db = new SQLite3('cfa.db') or die('Unable to open database');
+    $db = new SQLite3($root.'/cfa.db') or die('Unable to open database');
     $query = <<<QUERY
     SELECT *
     FROM event
@@ -122,7 +130,7 @@ QUERY;
         </div>
     </div>
 
-    <?php include('common/footer.php'); ?>
+    <?php include($root.'/common/footer.php'); ?>
 
 </body>
 

@@ -2,12 +2,20 @@
   if(session_id() == '' || !isset($_SESSION)) {
     session_start();
   }
+  if(strpos($_SERVER['HTTP_HOST'], "localhost") !== FALSE){// For local
+    $http = "http://" . $_SERVER['HTTP_HOST'];
+    $root = $_SERVER['DOCUMENT_ROOT'];
+  }
+  else{ // For Web
+    $http = "https://" . $_SERVER['HTTP_HOST'];
+    $root = $_SERVER['DOCUMENT_ROOT'];
+  }  
 ?>
 
 <?php
   if (!empty($_SESSION['logged_in']) && $_SESSION['logged_in']) {
     $_SESSION['message'] = "You are already logged in";
-    require('index.php');
+    require_once($root.'/index.php');
     return;
   }
 ?>
@@ -18,20 +26,20 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Log in</title>
-    <link rel="stylesheet" href="cfa.css" />
+    <link rel="stylesheet" href=<?php echo "{$http}/cfa.css"; ?>>
 </head>
 <body>
 
 <div class="container">
 
-    <?php include('common/header.php');?>
-    <?php include('common/menu.php');?>
+    <?php include("{$root}/common/header.php");?>
+    <?php include("{$root}/common/menu.php");?>
 
 <p>
 
 <h2 style="margin-left:5vw;">Login</h2>
 
-<form method="POST" action="login_action.php">
+<form method="POST" action=<?php echo "{$http}/actionScripts/login_action.php"; ?>>
 
   <p style="margin-left:5vw;">User Id:<input type="text" name="userid"/></p>
   <p style="margin-left:5vw;">Password:<input type="password" name="password" /></p>
@@ -48,7 +56,7 @@
   }
 ?>
 
-<?php include('common/footer.php'); ?>
+<?php include("{$root}/common/footer.php");?>
 </body> 
 
 </html>

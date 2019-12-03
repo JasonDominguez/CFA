@@ -2,11 +2,19 @@
   if(session_id() == '' || !isset($_SESSION)) {
     session_start();
   }
+  if(strpos($_SERVER['HTTP_HOST'], "localhost") !== FALSE){// For local
+    $http = "http://" . $_SERVER['HTTP_HOST'];
+    $root = $_SERVER['DOCUMENT_ROOT'];
+  }
+  else{ // For Web
+    $http = "https://" . $_SERVER['HTTP_HOST'];
+    $root = $_SERVER['DOCUMENT_ROOT'];
+  }
 ?>
 
 <?php
   if (empty($_SESSION['logged_in']) or !$_SESSION['logged_in']) {
-    require('login.php');
+    require_once($root.'/forms/login.php');
     return;
   }
 ?>
@@ -16,20 +24,20 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Charlottesville Fishing Association</title>
-    <link rel="stylesheet" href="cfa.css" />
-    <script src="js/eventCheck.js" async></script>
+    <link rel="stylesheet" href=<?php echo "{$http}/cfa.css"; ?> />
+    <script src=<?php echo "{$http}/js/eventCheck.js"; ?> async></script>
 </head>
 
 <body>
     <div class="container">
           
-        <?php include('common/header.php');?>
-        <?php include('common/menu.php');?>
+      <?php include("{$root}/common/header.php");?>
+      <?php include("{$root}/common/menu.php");?>
 
         <div class = "formBox">
             <h1>New Event</h1>
             <hr>
-            <form method="POST" action="new_event_action.php" onsubmit="return validateForm('results');">
+            <form method="POST" action=<?php echo "{$http}/actionScripts/new_event_action.php" ?> onsubmit="return validateForm('results');">
 
             <label for="eventName"><b>Name of the event:</b></label>
             <input 
@@ -94,7 +102,7 @@
         </div>
     </div>
     
-  <?php include('common/footer.php'); ?>
+  <?php include($root.'/common/footer.php'); ?>
   
 </body>
 </html>

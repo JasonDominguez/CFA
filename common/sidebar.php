@@ -1,5 +1,5 @@
 <div class = "sidebar">
-    <img class="img" src="pics/bass.jpg">
-    <img class="img" src="pics/flyfishing.jpg">
-    <img class="img" src="pics/fishing.jpg">
+    <img class="img" src=<?php echo "{$http}/pics/bass.jpg"; ?>>
+    <img class="img" src=<?php echo "{$http}/pics/flyfishing.jpg"; ?>>
+    <img class="img" src=<?php echo "{$http}/pics/fishing.jpg"; ?>>
 </div>

@@ -2,14 +2,22 @@
   if(session_id() == '' || !isset($_SESSION)) {
     session_start();
   }
+  if(strpos($_SERVER['HTTP_HOST'], "localhost") !== FALSE){// For local
+    $http = "http://" . $_SERVER['HTTP_HOST'];
+    $root = $_SERVER['DOCUMENT_ROOT'];
+  }
+  else{ // For Web
+    $http = "https://" . $_SERVER['HTTP_HOST'];
+    $root = $_SERVER['DOCUMENT_ROOT'];
+  }
 
   if (empty($_POST['userid']) || empty($_POST['password']) ) {
     $_SESSION['message'] = "Please login";
-    require('login.php');
+    require_once($root.'/forms/login.php');
     return;
   }
 
-    $db = new SQLite3('cfa.db') or die('Unable to open database');
+    $db = new SQLite3($root.'/cfa.db') or die('Unable to open database');
     $userid = $_POST['userid'];
     $password = $_POST['password'];
     $query = <<<QUERY
@@ -26,10 +34,10 @@ QUERY;
         $_SESSION['userid'] = $_POST['userid'];
         $_SESSION['logged_in'] = true;
         $_SESSION['message'] = $_SESSION['userid'] . " logged in";
-        require('index.php');
+        require_once($root.'/index.php');
     }
     else {
         $_SESSION['message'] = "Invalid credentials - please try again";
-        require('login.php');
+        require_once($root.'/forms/login.php');
     }
 ?>

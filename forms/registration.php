@@ -1,18 +1,31 @@
+<?php
+  if(session_id() == '' || !isset($_SESSION)) {
+    session_start();
+  }
+  if(strpos($_SERVER['HTTP_HOST'], "localhost") !== FALSE){// For local
+    $http = "http://" . $_SERVER['HTTP_HOST'];
+    $root = $_SERVER['DOCUMENT_ROOT'];
+  }
+  else{ // For Web
+    $http = "https://" . $_SERVER['HTTP_HOST'];
+    $root = $_SERVER['DOCUMENT_ROOT'];
+  }  
+?>
 <!DOCTYPE html> 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" > 
 
 <head>
     <meta charset="UTF-8"/>
     <title>Charlottesville Fishing Association</title>
-    <link rel="stylesheet" href="cfa.css" />
-    <script src="js/registrationCheck.js" async></script>
+    <link rel="stylesheet" href=<?php echo "{$http}/cfa.css"; ?> />
+    <script src=<?php echo "{$http}/js/registrationCheck.js"; ?> async></script>
 </head>
 
 <body>
   <div class="container">
           
-    <?php include('common/header.php');?>
-    <?php include('common/menu.php');?>
+    <?php include($root.'/common/header.php');?>
+    <?php include($root.'/common/menu.php');?>
 
     <div class = "formBox">
 
@@ -20,7 +33,7 @@
 
       <hr>
 
-      <form method="POST" action="registration_action.php" onsubmit="return validateForm('results');">
+      <form method="POST" action=<?php echo "{$http}/actionScripts/registration_action.php" ?> onsubmit="return validateForm('results');">
       <table>
         <tr class="instruction"><td>Length must be no more that 20 characters and contain only letters and numbers.</td></tr>
         <tr>
@@ -255,7 +268,7 @@
 
   </div>
     
-  <?php include('common/footer.php'); ?>
+  <?php include($root.'/common/footer.php'); ?>
   
 </body>
 </html>
