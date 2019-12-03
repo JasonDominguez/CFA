@@ -54,11 +54,10 @@
     $messages[] = "The event location is required.";
   }
   if ( empty($description) ||
-      ! preg_match("/^[a-zA-Z0-9 ,.'-(\n)(\r)]+$/", $description) )
+      ! preg_match("/^[a-zA-Z0-9 ,.\-'-(\n)(\r)]+$/", $description) )
   {
     $error = TRUE;
-    // $messages[] = "Event description is required, no special charaters are allowed";
-    $messages[] = $description;
+    $messages[] = "Event description is required, no special charaters are allowed";
   }
   
   if((time()-(60*60*24)) > strtotime($date))
