@@ -7,12 +7,12 @@
     $root = $_SERVER['DOCUMENT_ROOT'];
   }
   else{ // For Web
-    $http = "https://" . $_SERVER['HTTP_HOST'];
+    $http = "https://" . $_SERVER['HTTP_HOST'] . "/~jdomingu/cs312/project";
     $root = "/home/jdomingu/secure_html/cs312/project";
   }  
-  echo $http;
+  echo dirname(__FILE__);
   echo "<br>";
-  echo $root;
+  echo getcwd();
 ?>
 
 <?php

@@ -10,9 +10,10 @@
     $http = "https://" . $_SERVER['HTTP_HOST'] . "/~jdomingu/cs312/project";
     $root = "/home/jdomingu/secure_html/cs312/project";
   }
-echo $http;
+
+echo dirname(__FILE__);
 echo "<br>";
-echo $root;
+echo getcwd();
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml-lang="en">
