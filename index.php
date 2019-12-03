@@ -10,7 +10,7 @@
     $http = "https://" . $_SERVER['HTTP_HOST'] . "/~jdomingu/cs312/project";
     $root = $_SERVER['DOCUMENT_ROOT'];
   }
-echo $http;
+echo shell_exec('ls');
 echo "<br>";
 echo $root;
 ?>
