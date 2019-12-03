@@ -4,12 +4,15 @@
   }
   if(strpos($_SERVER['HTTP_HOST'], "localhost") !== FALSE){// For local
     $http = "http://" . $_SERVER['HTTP_HOST'];
-    $root = $_SERVER['DOCUMENT_ROOT']."/";
+    $root = $_SERVER['DOCUMENT_ROOT'];
   }
   else{ // For Web
     $http = "https://" . $_SERVER['HTTP_HOST'];
-    $root = $_SERVER['DOCUMENT_ROOT'].shell_exec('pwd');
+    $root = getcwd();
   }  
+  echo $http;
+  echo "<br>";
+  echo $root;
 ?>
 
 <?php

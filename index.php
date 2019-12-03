@@ -8,7 +8,7 @@
   }
   else{ // For Web
     $http = "https://" . $_SERVER['HTTP_HOST'] . "/~jdomingu/cs312/project";
-    $root = $_SERVER['DOCUMENT_ROOT'].shell_exec('pwd');
+    $root = getcwd();
   }
 echo $http;
 echo "<br>";
