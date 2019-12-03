@@ -18,7 +18,7 @@ function checkName(obj) {
 }
 
 function checkDesc(obj) {
-    var regex = /^[a-zA-Z0-9 ,.'-]+$/;
+    var regex = /^[a-zA-Z0-9 ,.$\-'-(\n)(\r)]+$/;
     return checkRegex(obj, regex);
 }
 
