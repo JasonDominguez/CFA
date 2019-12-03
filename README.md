@@ -1,15 +1,19 @@
 # Semester project for cs312
 
+## Learning Objectives:  
+• Develop a basic website using common website languages.  
+• Apply principles of proper authentication to control access to a website.  
+• Apply principles of accessibility in constructing a website.  
+
+**Overview:** In this project, you will complete a functional website for a hypothetical, fictional organization. The website will provide information (passive content) as well as some forms of functionality (active content).  
 
 
-Learning Objectives:
-• Develop a basic website using common website languages.
-• Apply principles of proper authentication to control access to a website.
-• Apply principles of accessibility in constructing a website.
-Overview: In this project, you will complete a functional website for a hypothetical, fictional organization. The website will provide information (passive content) as well as some forms of functionality (active content).
-The coding will be done exclusively on your account on the CS Department linux servers, using exclusively the tools studied in class (no unauthorized external libraries). All code must be neatly formatted, readable, and properly documented. All generated web pages must be W3C compliant and must meet accessibility guidelines. The website must also follow all university rules for use of information technology equipment. For the sake of privacy, no personal images may be displayed without express permission of the subject.
-This is an individual project requiring original work. All coding and all media (photos, video, text, etc.) used in this website must be original for this project. Nothing may be copied from other websites. Nothing may be shared with other students. All work must be your own.
-Specifications: There are four separate deliverables for the project, which are listed below. Specifications for the first deliverable is provided here. The remaining specifications will be provided later in the semester.
+The coding will be done exclusively on your account on the CS Department linux servers, using exclusively the tools studied in class (no unauthorized external libraries). All code must be neatly formatted, readable, and properly documented. All generated web pages must be W3C compliant and must meet accessibility guidelines. The website must also follow all university rules for use of information technology equipment. For the sake of privacy, no personal images may be displayed without express permission of the subject.  
+
+This is an individual project requiring original work. All coding and all media (photos, video, text, etc.) used in this website must be original for this project. Nothing may be copied from other websites. Nothing may be shared with other students. All work must be your own.  
+
+**Specifications:** There are four separate deliverables for the project, which are listed below. Specifications for the first deliverable is provided here. The remaining specifications will be provided later in the semester.  
+
 • Proposal: Your website should describe a fictitious organization, e.g., a club, affinity group, church, charity, business, etc. It must, however, be authentic and realistic in nature (i.e., nothing funny or absurd such as “Tidewater Zombie Association”). It must not name any existing organizations (e.g., nothing with “ODU” in the title), and must not imply anything offensive (e.g., “Stupid XXXX People’s Club”). It can be political or religious in nature, just not in any offensive way.
 Your proposal should be exactly one page long (single spaced), about 350 words. It should include the following:
 1. Title: Your name, the name of the class, the name of the assignment
