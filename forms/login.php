@@ -8,7 +8,7 @@
   }
   else{ // For Web
     $http = "https://" . $_SERVER['HTTP_HOST'];
-    $root = $_SERVER['DOCUMENT_ROOT'];
+    $root = "";
   }  
 ?>
 
