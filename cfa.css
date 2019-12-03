@@ -174,7 +174,7 @@ hr{
     color:black;
 }
 .dates span:first-child{/*first day is 3rd column*/
-    grid-column: 6
+    grid-column: 1;
 }
 /* ===== categories =====*/
 .categories{

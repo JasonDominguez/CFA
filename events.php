@@ -31,7 +31,7 @@
         <button><span><a href=<?php echo "{$http}/forms/new_event.php"; ?> class="fill"><b>Add Event</b></a></span></button>
             <div class = "calendar">
 
-                <h2>November 2019</h2>
+                <h2>December 2019</h2>
 
                 <div class="day">
                     <div>Sunday</div> 
@@ -103,10 +103,11 @@ QUERY;
         usort($eventArray, "date_sort");
 
         foreach ($eventArray as $event){
+            $date = date_create($event["eventDate"] ." ".$event["eventTime"]);
             echo "<hr>
             <div class = \"content\">
             <h3>".$event["eventName"]."</h3>
-            <p><strong>Date: </strong>".$event["eventDate"]." at ".$event["eventTime"]."<br>
+            <p><strong>When: </strong>".date_format($date, 'g:ia \o\n l jS F Y')."<br>
             <strong>Sponsor: </strong>".$event["sponsor"]."<br>
             <strong>Where: </strong>".$event["location"]."<br>
             <strong>Description: </strong>".$event["description"]."</p>
