@@ -67,26 +67,26 @@ field using regex patterns, and should return appropriate error messages if any 
 ◦ No Surprises Rule: All pages should work in an intuitive fashion, without presenting puzzling or confusing behavior to the user under any circumstances.
   
 • **Part 3: User Authentication / Registration; Database**
-In this part of the assignment, you will build a database to contain user records for registration and authentication, and event records for displaying events. In particular, you should add or modify the following components:
-◦ makedb.sql: This SQL command file should contain SQL statements to create event and user tables. The tables should contain essentially the same fields as the event and user registration files created in part 2.
-◦ registration_action.php: This script should be changed to insert a user record into the database, instead of writing it to a file. The user record should contain a password hash created by PHP, rather than a clear-text password. The password hash will also have a salt built into it (use the password_hash() function).
-◦ login.php: This page should provide a form for the user to enter a userid and password for logging in. It should be linked on the home page or in the menu. It should use appropriate field types and validation for the inputs.
+In this part of the assignment, you will build a database to contain user records for registration and authentication, and event records for displaying events. In particular, you should add or modify the following components:  
+◦ makedb.sql: This SQL command file should contain SQL statements to create event and user tables. The tables should contain essentially the same fields as the event and user registration files created in part 2.  
+◦ registration_action.php: This script should be changed to insert a user record into the database, instead of writing it to a file. The user record should contain a password hash created by PHP, rather than a clear-text password. The password hash will also have a salt built into it (use the password_hash() function).  
+◦ login.php: This page should provide a form for the user to enter a userid and password for logging in. It should be linked on the home page or in the menu. It should use appropriate field types and validation for the inputs.  
 ◦ login_action.php: This script should validate the user credentials from the login page by reading the user record from the database and checking the input password against the password hash (use the
 password_verify() function). If and only if the credentials are correct, it should update the session with a
-logged_in flag set to TRUE. It should return an appropriate message in either case.
+logged_in flag set to TRUE. It should return an appropriate message in either case.   
 ◦ logout_action.php: This script should remove the logged_in credential from the session and return an
-appropriate message. It should be linked from the home page or in the menu.
+appropriate message. It should be linked from the home page or in the menu.  
 ◦ new_event.php: This page should be changed so that it is available only to users who have successfully logged in. If the user is not logged in, it should redirect to the login page instead.
-◦ new_event_action.php: This script should be changed to insert a new event into the database, rather than writing it to a text file.
+◦ new_event_action.php: This script should be changed to insert a new event into the database, rather than writing it to a text file.  
 ◦ events.php: This page should be changed to display all events contained in the database rather than reading them from a text file. (It should be available to all users, whether logged in or not.)
-No Surprises Rule: All pages should work in an intuitive fashion, without presenting puzzling or confusing behavior to the user under any circumstances.
-Grading:
-• Criteria:
-◦ Completeness: The artifacts produced must meet all specifications given in the assignment.
-◦ Correctness: All artifacts must be correctly implemented, including correct coding and adherence to W3C
-and other appropriate standards.
-◦ Authenticity: The web site must provide a complete, meaningful, and seemingly authentic description of
-the (fictional) organization that it supports.
-◦ Coding style: The code must be neat and readable, with proper comments and indentation.
-• Breakdown:
+No Surprises Rule: All pages should work in an intuitive fashion, without presenting puzzling or confusing behavior to the user under any circumstances.  
+Grading:  
+• Criteria:  
+◦ Completeness: The artifacts produced must meet all specifications given in the assignment.  
+◦ Correctness: All artifacts must be correctly implemented, including correct coding and adherence to W3C  
+and other appropriate standards.   
+◦ Authenticity: The web site must provide a complete, meaningful, and seemingly authentic description of  
+the (fictional) organization that it supports.  
+◦ Coding style: The code must be neat and readable, with proper comments and indentation.    
+• Breakdown:  
 ◦ Proposal: 10% ◦ Part1: 30% ◦ Part2: 30% ◦ Part3: 30%
