@@ -70,14 +70,27 @@
             </div>
             
         <?php 
-        $fileData = file_get_contents('events.txt');
-        $eventArray = explode('|', $fileData, -1);
+        // $fileData = file_get_contents('events.txt');
+        // $eventArray = explode('|', $fileData, -1);
 
-        for ($i=0; $i<count($eventArray); $i++){
-            $eventArray[$i] = json_decode($eventArray[$i], TRUE);
-        }
+        // for ($i=0; $i<count($eventArray); $i++){
+        //     $eventArray[$i] = json_decode($eventArray[$i], TRUE);
+        // }
+
+    $db = new SQLite3('cfa.db') or die('Unable to open database');
+    $query = <<<QUERY
+    SELECT *
+    FROM event
+QUERY;
+    $eventArray = array();
+    $result = $db->query($query) or die('Query failed');
+    while($row = $result->fetchArray()){
+        array_push($eventArray, $row);
+    }
+    $db->close();
+
         function date_sort($a, $b) {
-            return strtotime($a['date']) - strtotime($b['date']);
+            return strtotime($a['eventDate']) - strtotime($b['eventDate']);
         }
         usort($eventArray, "date_sort");
 
@@ -85,7 +98,7 @@
             echo "<hr>
             <div class = \"content\">
             <h3>".$event["eventName"]."</h3>
-            <p><strong>Date: </strong>".$event["date"]." at ".$event["time"]."<br>
+            <p><strong>Date: </strong>".$event["eventDate"]." at ".$event["eventTime"]."<br>
             <strong>Sponsor: </strong>".$event["sponsor"]."<br>
             <strong>Where: </strong>".$event["location"]."<br>
             <strong>Description: </strong>".$event["description"]."</p>

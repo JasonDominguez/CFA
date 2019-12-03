@@ -20,10 +20,27 @@ if(session_id() == '' || !isset($_SESSION)) {
   $city = $_POST['city'];
   $state = $_POST['state'];
 
+  function userExists($userid) {
+    $db = new SQLite3('cfa.db') or die('Unable to open database');
+    $query = "SELECT EXISTS(SELECT * FROM users WHERE userId='$userid');";
+    $stmt = $db->querySingle($query);
+    if($stmt){
+      $db->close();
+      return TRUE;
+    }else{
+      $db->close();
+      return FALSE;
+    }
+  }
+
   if ( empty($userid) || ! preg_match("/^[a-zA-Z0-9]{1,20}$/", $userid) ){
     $error = TRUE;
     $messages[] = "UserID is required, only letters and numbers are allowed.";
+  }elseif(userExists($userid)){
+    $error = TRUE;
+    $messages[] = "UserID not avalible, please pick a different UserID."; 
   }
+
   if ( empty($password) || ! preg_match("/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/", $password) ){
     $error = TRUE;
     $messages[] = "Password is too short or contains invaild characters.";

@@ -20,10 +20,18 @@
 
             <div class="info">
                 <div id="welcome">
-                    <h3>Welcome, to the Charlottesville Fishing Association.</h3>
+                <?php
+                if ( !empty($_SESSION['message'])) {
+                    echo "<h3>", $_SESSION['message'], "</h3>"; 
+                    unset($_SESSION['message']);
+                }else{
+                    echo '<h3>Welcome, to the Charlottesville Fishing Association.</h3>
                     <p>
                     The Charlottesville Fishing Association, CFA, is a group devoted to fishing in and around the Charlottesville, VA area. 
-                    </p>
+                    </p>';
+                }
+                ?>
+                    
                 </div>
                 <hr>
                 <div class = "content">
@@ -46,14 +54,6 @@
                 </div>
             </div>
         </div>
-
-        <?php 
-        if ( !empty($_SESSION['message'])) {
-            echo $_SESSION['message']; 
-            unset($_SESSION['message']);
-        }
-        ?>
-    
         <?php include('common/footer.php'); ?>
 
   </body>

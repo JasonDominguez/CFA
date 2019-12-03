@@ -14,6 +14,27 @@
   $time = $_POST['time'];
   $description = $_POST['description'];
 
+  function dateExists($date) {
+    $db = new SQLite3('cfa.db') or die('Unable to open database');
+    $query = "SELECT * FROM event WHERE eventDate='$date';";
+    $stmt = $db->querySingle($query);
+    if($stmt){
+      $db->close();
+      return TRUE;
+    }else{
+      $db->close();
+      return FALSE;
+    }
+  }
+
+  if ( empty($date)){
+    $error = TRUE;
+    $messages[] = "Date of event is required.";
+  }elseif(dateExists($date)){
+    $error = TRUE;
+    $messages[] = "There is an event already scheduled for that date, please pick a different date."; 
+  }
+
   if ( empty($name) ||
       ! preg_match("/^[a-zA-ZÀ-ÿ ,.'-]+$/", $name) )
   {
@@ -33,10 +54,11 @@
     $messages[] = "The event location is required.";
   }
   if ( empty($description) ||
-      ! preg_match("/^[a-zA-Z0-9 ,.'-]+$/", $description) )
+      ! preg_match("/^[a-zA-Z0-9 ,.'-(\n)(\r)]+$/", $description) )
   {
     $error = TRUE;
-    $messages[] = "Event description is required, no special charaters are allowed";
+    // $messages[] = "Event description is required, no special charaters are allowed";
+    $messages[] = $description;
   }
   
   if((time()-(60*60*24)) > strtotime($date))

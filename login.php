@@ -29,17 +29,17 @@
 
 <p>
 
-<h2>Login</h2>
+<h2 style="margin-left:5vw;">Login</h2>
 
 <form method="POST" action="login_action.php">
 
-  <p>User Id:<input type="text" name="userid" /></p>
-  <p>Password:<input type="password" name="password" /></p>
-  <p><input type="submit" value="Login"/></p>
+  <p style="margin-left:5vw;">User Id:<input type="text" name="userid"/></p>
+  <p style="margin-left:5vw;">Password:<input type="password" name="password" /></p>
+  <p style="margin-left:5vw;"><input type="submit" value="Login"/></p>
 
 </form>
 
-<hr/>
+<hr>
 
 <?php 
   if ( !empty($_SESSION['message'])) {
