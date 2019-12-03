@@ -7,8 +7,8 @@
     $root = $_SERVER['DOCUMENT_ROOT'];
   }
   else{ // For Web
-    $http = "https://" . $_SERVER['HTTP_HOST'];
-    $root = $_SERVER['DOCUMENT_ROOT'];
+    $http = "https://" . $_SERVER['HTTP_HOST'] . "/~jdomingu/cs312/project";
+    $root = "/home/jdomingu/secure_html/cs312/project";
   }  
 ?>
 <!DOCTYPE html> 

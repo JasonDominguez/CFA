@@ -10,9 +10,6 @@
     $http = "https://" . $_SERVER['HTTP_HOST'] . "/~jdomingu/cs312/project";
     $root = "/home/jdomingu/secure_html/cs312/project";
   }  
-  echo dirname(__FILE__);
-  echo "<br>";
-  echo getcwd();
 ?>
 
 <?php
