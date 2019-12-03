@@ -4,7 +4,7 @@
   }
   if(strpos($_SERVER['HTTP_HOST'], "localhost") !== FALSE){// For local
     $http = "http://" . $_SERVER['HTTP_HOST'];
-    $root = $_SERVER['DOCUMENT_ROOT'];
+    $root = $_SERVER['DOCUMENT_ROOT']."/";
   }
   else{ // For Web
     $http = "https://" . $_SERVER['HTTP_HOST'];
@@ -15,7 +15,7 @@
 <?php
   if (!empty($_SESSION['logged_in']) && $_SESSION['logged_in']) {
     $_SESSION['message'] = "You are already logged in";
-    require_once($root.'/index.php');
+    require_once($root.'index.php');
     return;
   }
 ?>
@@ -32,8 +32,8 @@
 
 <div class="container">
 
-    <?php include("{$root}/common/header.php");?>
-    <?php include("{$root}/common/menu.php");?>
+    <?php include("{$root}common/header.php");?>
+    <?php include("{$root}common/menu.php");?>
 
 <p>
 
@@ -56,7 +56,7 @@
   }
 ?>
 
-<?php include("{$root}/common/footer.php");?>
+<?php include("{$root}common/footer.php");?>
 </body> 
 
 </html>
