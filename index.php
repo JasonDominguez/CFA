@@ -7,9 +7,12 @@
     $root = $_SERVER['DOCUMENT_ROOT'];
   }
   else{ // For Web
-    $http = "https://" . $_SERVER['HTTP_HOST'];
+    $http = "https://" . $_SERVER['HTTP_HOST'] . "/~jdomingu/cs312/project";
     $root = $_SERVER['DOCUMENT_ROOT'];
   }
+echo $http;
+echo "<br>";
+echo $root;
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml-lang="en">
