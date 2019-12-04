@@ -88,7 +88,7 @@
             onchange="checkDate(this)" 
             required><br><br>
 
-            <label for="time"><b>Time:<b></label>
+            <label for="time"><b>Time:</b></label>
             <input 
             id ="time"
             type="time" 
