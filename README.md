@@ -1,6 +1,6 @@
-# Semester project for cs312
+# [Charlottesville Fishing Association](https://www.cs.odu.edu/~jdomingu/cs312/project/index.php)
 
-The site allows users to create an account and post events which are then displayed on the events page.  
+Fictional website developed as a semester project for a web development class. The site allows users to create an account, log in and then post events which are then displayed on the events page.  
 
 ## Technologies 
 * HTML, CSS, and JS
